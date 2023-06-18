@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TicTacToeConsole.Utillity;
 
 namespace Tic_Tac_Toe_GUI
 {
@@ -19,8 +20,9 @@ namespace Tic_Tac_Toe_GUI
 
         private void buttonStartGame_Click(object sender, EventArgs e)
         {
+
             this.Hide();
-            new FormTicTacToeMisere().ShowDialog();
+            new FormTicTacToeMisere((eBoardSize)numericUpDownRows.Value, checkBoxPlayer2.Checked).ShowDialog();
             this.Close();
         }
     }

@@ -30,6 +30,7 @@
         {
             this.labelScorePlayer1 = new System.Windows.Forms.Label();
             this.labelScorePlayer2 = new System.Windows.Forms.Label();
+            this.tableLayoutPanelGameBoard = new System.Windows.Forms.TableLayoutPanel();
             this.SuspendLayout();
             // 
             // labelScorePlayer1
@@ -50,15 +51,33 @@
             this.labelScorePlayer2.TabIndex = 1;
             this.labelScorePlayer2.Text = "Computer: 0";
             // 
+            // tableLayoutPanelGameBoard
+            // 
+            this.tableLayoutPanelGameBoard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanelGameBoard.AutoSize = true;
+            this.tableLayoutPanelGameBoard.ColumnCount = 2;
+            this.tableLayoutPanelGameBoard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelGameBoard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelGameBoard.Location = new System.Drawing.Point(301, 58);
+            this.tableLayoutPanelGameBoard.Name = "tableLayoutPanelGameBoard";
+            this.tableLayoutPanelGameBoard.RowCount = 2;
+            this.tableLayoutPanelGameBoard.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelGameBoard.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelGameBoard.Size = new System.Drawing.Size(200, 100);
+            this.tableLayoutPanelGameBoard.TabIndex = 2;
+            // 
             // FormTicTacToeMisere
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.tableLayoutPanelGameBoard);
             this.Controls.Add(this.labelScorePlayer2);
             this.Controls.Add(this.labelScorePlayer1);
             this.Name = "FormTicTacToeMisere";
             this.Text = "Tic Tac Toe Misere";
+            this.Load += new System.EventHandler(this.FormTicTacToeMisere_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -68,5 +87,6 @@
 
         private System.Windows.Forms.Label labelScorePlayer1;
         private System.Windows.Forms.Label labelScorePlayer2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelGameBoard;
     }
 }
