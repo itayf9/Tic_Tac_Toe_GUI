@@ -51,6 +51,7 @@
             this.buttonStartGame.TabIndex = 0;
             this.buttonStartGame.Text = "Start!";
             this.buttonStartGame.UseVisualStyleBackColor = true;
+            this.buttonStartGame.Click += new System.EventHandler(this.buttonStartGame_Click);
             // 
             // label1
             // 
@@ -69,7 +70,6 @@
             this.label2.Size = new System.Drawing.Size(69, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Player 1:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -113,7 +113,7 @@
             this.textBoxPlayer1.Location = new System.Drawing.Point(180, 74);
             this.textBoxPlayer1.Name = "textBoxPlayer1";
             this.textBoxPlayer1.Size = new System.Drawing.Size(100, 26);
-            this.textBoxPlayer1.TabIndex = 8;
+            this.textBoxPlayer1.TabIndex = 0;
             // 
             // textBoxPlayer2
             // 

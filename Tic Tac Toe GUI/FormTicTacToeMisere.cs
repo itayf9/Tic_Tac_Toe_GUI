@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace Tic_Tac_Toe_GUI
 {
-    public partial class FormGameSettings : Form
+    public partial class FormTicTacToeMisere : Form
     {
-        public FormGameSettings()
+        public FormTicTacToeMisere()
         {
             InitializeComponent();
-        }
-
-        private void buttonStartGame_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            new FormTicTacToeMisere().ShowDialog();
-            this.Close();
         }
     }
 }
