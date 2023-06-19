@@ -15,7 +15,7 @@ namespace Tic_Tac_Toe_GUI
     public partial class FormTicTacToeMisere : Form
     {
         private GameLogic m_GameLogic;
-        private readonly Button[,] r_GameBoardButtonMatrix;
+        private readonly Dictionary<Button, Point> r_GameBoardButtonToLocation;
 
         public FormTicTacToeMisere(eBoardSize i_BoardSize, bool i_IsGameAgainstMachine, string i_NameOfPlayer1, string i_NameOfPlayer2)
         {
@@ -24,7 +24,7 @@ namespace Tic_Tac_Toe_GUI
             int boardSizeAsInteger = (int)i_BoardSize;
 
             this.m_GameLogic = new GameLogic(i_BoardSize, i_IsGameAgainstMachine, i_NameOfPlayer1, i_NameOfPlayer2);
-            this.r_GameBoardButtonMatrix = new Button[boardSizeAsInteger, boardSizeAsInteger];
+            this.r_GameBoardButtonToLocation = new Dictionary<Button, Point>();
 
         }
 
@@ -43,12 +43,33 @@ namespace Tic_Tac_Toe_GUI
                     boardMarkButton.Height = (flowLayoutPanelGameBoard.Height - 50) / m_GameLogic.GameBoardSize;
                     boardMarkButton.Width = (flowLayoutPanelGameBoard.Width - 50) / m_GameLogic.GameBoardSize;
                     boardMarkButton.Name = string.Format("button{0}_{1}", i, j);
-                    this.r_GameBoardButtonMatrix[i,j] = boardMarkButton;
+                    boardMarkButton.Click += BoardMarkButton_Click;
+                    this.r_GameBoardButtonToLocation.Add(boardMarkButton, new Point(j, i));
                     flowLayoutPanelGameBoard.Controls.Add(boardMarkButton);
                 }
             }
 
 
+        }
+
+        private void BoardMarkButton_Click(object sender, EventArgs e)
+        {
+            Button clickedButton = sender as Button;
+            Point locationOfClickedButton = this.r_GameBoardButtonToLocation[clickedButton];
+            m_GameLogic.ApplyMove(locationOfClickedButton);
+
+            // check how we made the validation on EX2
+
+            // check Game_state
+
+            // notification for finish game (with the overload static method of MessageBox.Show)
+
+            // reset game
+
+            // update the text of the button OR
+            // implement bonus (also add a comment in the sumbmission mail if we did so)
+
+            // decide if the game board is resizeable
         }
 
         private void FormTicTacToeMisere_SizeChanged(object sender, EventArgs e)
@@ -61,5 +82,6 @@ namespace Tic_Tac_Toe_GUI
         {
 
         }
+
     }
 }
