@@ -206,6 +206,7 @@ namespace TicTacToeConsole.Model
 
         public void ResetGameBoard()
         {
+            m_Turn = 0;
             m_GameState = eGameState.Running;
             m_CountOfMarkedCells = 0;
 

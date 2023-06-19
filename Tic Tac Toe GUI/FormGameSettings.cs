@@ -20,11 +20,8 @@ namespace Tic_Tac_Toe_GUI
 
         private void buttonStartGame_Click(object sender, EventArgs e)
         {
-
-
-
             this.Hide();
-            new FormTicTacToeMisere((eBoardSize)numericUpDownRows.Value, checkBoxPlayer2.Checked, textBoxPlayer1.Text, textBoxPlayer2.Text).ShowDialog();
+            new FormTicTacToeMisere((eBoardSize)numericUpDownRows.Value, !checkBoxPlayer2.Checked, textBoxPlayer1.Text, textBoxPlayer2.Text).ShowDialog();
             this.Close();
         }
 
