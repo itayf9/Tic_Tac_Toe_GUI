@@ -10,19 +10,21 @@ namespace TicTacToeConsole.Model
     public class Player
     {
         private int m_Score;
-        private eBoardMark m_Symbol;
+        private readonly eBoardMark r_Symbol;
+        private readonly string r_Name;
 
-        public Player(eBoardMark i_Symbol)
+        public Player(eBoardMark i_Symbol, string i_Name)
         {
             this.m_Score = 0;
-            this.m_Symbol = i_Symbol;
+            this.r_Symbol = i_Symbol;
+            this.r_Name = i_Name;
         }
 
         public eBoardMark Symbol
         {
             get
             {
-                 return m_Symbol;
+                 return r_Symbol;
             }
         }
 
@@ -37,6 +39,11 @@ namespace TicTacToeConsole.Model
             {
                 m_Score = value;
             }
+        }
+
+        public string Name
+        {
+            get { return r_Name; }
         }
     }
 }

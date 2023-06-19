@@ -15,11 +15,11 @@ namespace TicTacToeConsole.Model
         private eGameState m_GameState;
         private int m_CountOfMarkedCells;
 
-        public GameLogic(eBoardSize i_BoardSize, bool i_IsGameAgainstMachine)
+        public GameLogic(eBoardSize i_BoardSize, bool i_IsGameAgainstMachine, string i_NameOfPlayer1, string i_NameOfPlayer2)
         {
             this.m_GameBoardSize = (int)i_BoardSize;
             this.m_Players = new List<Player>(2);
-            initPlayers();
+            initPlayers(i_NameOfPlayer1, i_NameOfPlayer2);
             this.m_GameBoard = new eBoardMark[m_GameBoardSize, m_GameBoardSize];
             ResetGameBoard();
             this.m_IsGameAgainstMachine = i_IsGameAgainstMachine;
@@ -73,6 +73,11 @@ namespace TicTacToeConsole.Model
         public int GetScoreOfPlayer(int i_IndexOfPlayer)
         {
             return m_Players[i_IndexOfPlayer].Score;
+        }
+
+        public string GetNameOfPlayer(int i_IndexOfPlayer)
+        {
+            return m_Players[i_IndexOfPlayer].Name;
         }
 
         public bool IsValidMove(Point i_GameMove)
@@ -213,10 +218,10 @@ namespace TicTacToeConsole.Model
             }
         }
 
-        public void initPlayers()
+        public void initPlayers(string i_NameOfPlayer1, string i_NameOfPlayer2)
         {
-            m_Players.Add(new Player(eBoardMark.PlayerX));
-            m_Players.Add(new Player(eBoardMark.PlayerO));
+            m_Players.Add(new Player(eBoardMark.PlayerX, i_NameOfPlayer1));
+            m_Players.Add(new Player(eBoardMark.PlayerO, i_NameOfPlayer2));
         }
     }
 }

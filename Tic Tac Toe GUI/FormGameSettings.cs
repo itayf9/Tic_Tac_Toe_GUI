@@ -24,7 +24,7 @@ namespace Tic_Tac_Toe_GUI
 
 
             this.Hide();
-            new FormTicTacToeMisere((eBoardSize)numericUpDownRows.Value, checkBoxPlayer2.Checked).ShowDialog();
+            new FormTicTacToeMisere((eBoardSize)numericUpDownRows.Value, checkBoxPlayer2.Checked, textBoxPlayer1.Text, textBoxPlayer2.Text).ShowDialog();
             this.Close();
         }
 
