@@ -45,9 +45,10 @@
             // 
             // buttonStartGame
             // 
-            this.buttonStartGame.Location = new System.Drawing.Point(205, 396);
+            this.buttonStartGame.Enabled = false;
+            this.buttonStartGame.Location = new System.Drawing.Point(130, 325);
             this.buttonStartGame.Name = "buttonStartGame";
-            this.buttonStartGame.Size = new System.Drawing.Size(75, 29);
+            this.buttonStartGame.Size = new System.Drawing.Size(175, 66);
             this.buttonStartGame.TabIndex = 0;
             this.buttonStartGame.Text = "Start!";
             this.buttonStartGame.UseVisualStyleBackColor = true;
@@ -83,16 +84,17 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 298);
+            this.label4.Location = new System.Drawing.Point(14, 254);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 20);
             this.label4.TabIndex = 4;
             this.label4.Text = "Rows";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(264, 298);
+            this.label5.Location = new System.Drawing.Point(235, 250);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(44, 20);
             this.label5.TabIndex = 5;
@@ -101,47 +103,83 @@
             // checkBoxPlayer2
             // 
             this.checkBoxPlayer2.AutoSize = true;
-            this.checkBoxPlayer2.Location = new System.Drawing.Point(16, 110);
+            this.checkBoxPlayer2.Location = new System.Drawing.Point(16, 112);
             this.checkBoxPlayer2.Name = "checkBoxPlayer2";
             this.checkBoxPlayer2.Size = new System.Drawing.Size(95, 24);
             this.checkBoxPlayer2.TabIndex = 7;
             this.checkBoxPlayer2.Text = "Player 2:";
             this.checkBoxPlayer2.UseVisualStyleBackColor = true;
+            this.checkBoxPlayer2.CheckedChanged += new System.EventHandler(this.checkBoxPlayer2_CheckedChanged);
             // 
             // textBoxPlayer1
             // 
             this.textBoxPlayer1.Location = new System.Drawing.Point(180, 74);
             this.textBoxPlayer1.Name = "textBoxPlayer1";
-            this.textBoxPlayer1.Size = new System.Drawing.Size(100, 26);
+            this.textBoxPlayer1.Size = new System.Drawing.Size(225, 26);
             this.textBoxPlayer1.TabIndex = 0;
+            this.textBoxPlayer1.TextChanged += new System.EventHandler(this.textBoxPlayer1_TextChanged);
             // 
             // textBoxPlayer2
             // 
+            this.textBoxPlayer2.Enabled = false;
             this.textBoxPlayer2.Location = new System.Drawing.Point(180, 110);
             this.textBoxPlayer2.Name = "textBoxPlayer2";
-            this.textBoxPlayer2.Size = new System.Drawing.Size(100, 26);
+            this.textBoxPlayer2.Size = new System.Drawing.Size(225, 26);
             this.textBoxPlayer2.TabIndex = 9;
+            this.textBoxPlayer2.Text = "[Computer]";
             // 
             // numericUpDownRows
             // 
-            this.numericUpDownRows.Location = new System.Drawing.Point(78, 292);
+            this.numericUpDownRows.Location = new System.Drawing.Point(80, 248);
+            this.numericUpDownRows.Maximum = new decimal(new int[] {
+            9,
+            0,
+            0,
+            0});
+            this.numericUpDownRows.Minimum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
             this.numericUpDownRows.Name = "numericUpDownRows";
             this.numericUpDownRows.Size = new System.Drawing.Size(120, 26);
             this.numericUpDownRows.TabIndex = 10;
+            this.numericUpDownRows.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.numericUpDownRows.ValueChanged += new System.EventHandler(this.numericUpDownRowOrCols_ValueChanged);
             // 
             // numericUpDownCols
             // 
-            this.numericUpDownCols.Location = new System.Drawing.Point(321, 298);
+            this.numericUpDownCols.Location = new System.Drawing.Point(285, 248);
+            this.numericUpDownCols.Maximum = new decimal(new int[] {
+            9,
+            0,
+            0,
+            0});
+            this.numericUpDownCols.Minimum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
             this.numericUpDownCols.Name = "numericUpDownCols";
             this.numericUpDownCols.Size = new System.Drawing.Size(120, 26);
             this.numericUpDownCols.TabIndex = 11;
+            this.numericUpDownCols.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.numericUpDownCols.ValueChanged += new System.EventHandler(this.numericUpDownRowOrCols_ValueChanged);
             // 
             // FormGameSettings
             // 
             this.AcceptButton = this.buttonStartGame;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(469, 454);
+            this.ClientSize = new System.Drawing.Size(456, 433);
             this.Controls.Add(this.numericUpDownCols);
             this.Controls.Add(this.numericUpDownRows);
             this.Controls.Add(this.textBoxPlayer2);
@@ -153,6 +191,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonStartGame);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormGameSettings";
