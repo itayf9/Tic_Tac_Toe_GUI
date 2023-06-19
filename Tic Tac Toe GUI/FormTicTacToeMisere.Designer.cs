@@ -30,54 +30,49 @@
         {
             this.labelScorePlayer1 = new System.Windows.Forms.Label();
             this.labelScorePlayer2 = new System.Windows.Forms.Label();
-            this.tableLayoutPanelGameBoard = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanelGameBoard = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // labelScorePlayer1
             // 
+            this.labelScorePlayer1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.labelScorePlayer1.AutoSize = true;
-            this.labelScorePlayer1.Location = new System.Drawing.Point(267, 406);
+            this.labelScorePlayer1.Location = new System.Drawing.Point(127, 510);
             this.labelScorePlayer1.Name = "labelScorePlayer1";
             this.labelScorePlayer1.Size = new System.Drawing.Size(82, 20);
             this.labelScorePlayer1.TabIndex = 0;
             this.labelScorePlayer1.Text = "Player 1: 0";
+            this.labelScorePlayer1.Click += new System.EventHandler(this.labelScorePlayer1_Click);
             // 
             // labelScorePlayer2
             // 
+            this.labelScorePlayer2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.labelScorePlayer2.AutoSize = true;
-            this.labelScorePlayer2.Location = new System.Drawing.Point(481, 406);
+            this.labelScorePlayer2.Location = new System.Drawing.Point(329, 510);
             this.labelScorePlayer2.Name = "labelScorePlayer2";
             this.labelScorePlayer2.Size = new System.Drawing.Size(96, 20);
             this.labelScorePlayer2.TabIndex = 1;
             this.labelScorePlayer2.Text = "Computer: 0";
             // 
-            // tableLayoutPanelGameBoard
+            // flowLayoutPanelGameBoard
             // 
-            this.tableLayoutPanelGameBoard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanelGameBoard.AutoSize = true;
-            this.tableLayoutPanelGameBoard.ColumnCount = 2;
-            this.tableLayoutPanelGameBoard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelGameBoard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelGameBoard.Location = new System.Drawing.Point(301, 58);
-            this.tableLayoutPanelGameBoard.Name = "tableLayoutPanelGameBoard";
-            this.tableLayoutPanelGameBoard.RowCount = 2;
-            this.tableLayoutPanelGameBoard.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelGameBoard.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelGameBoard.Size = new System.Drawing.Size(200, 100);
-            this.tableLayoutPanelGameBoard.TabIndex = 2;
+            this.flowLayoutPanelGameBoard.Location = new System.Drawing.Point(63, 34);
+            this.flowLayoutPanelGameBoard.Name = "flowLayoutPanelGameBoard";
+            this.flowLayoutPanelGameBoard.Size = new System.Drawing.Size(450, 450);
+            this.flowLayoutPanelGameBoard.TabIndex = 3;
             // 
             // FormTicTacToeMisere
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.tableLayoutPanelGameBoard);
+            this.ClientSize = new System.Drawing.Size(575, 565);
+            this.Controls.Add(this.flowLayoutPanelGameBoard);
             this.Controls.Add(this.labelScorePlayer2);
             this.Controls.Add(this.labelScorePlayer1);
             this.Name = "FormTicTacToeMisere";
             this.Text = "Tic Tac Toe Misere";
             this.Load += new System.EventHandler(this.FormTicTacToeMisere_Load);
+            this.SizeChanged += new System.EventHandler(this.FormTicTacToeMisere_SizeChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -87,6 +82,6 @@
 
         private System.Windows.Forms.Label labelScorePlayer1;
         private System.Windows.Forms.Label labelScorePlayer2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelGameBoard;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelGameBoard;
     }
 }

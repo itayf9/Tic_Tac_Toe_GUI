@@ -25,8 +25,6 @@ namespace Tic_Tac_Toe_GUI
 
             this.m_GameLogic = new GameLogic(i_BoardSize, i_IsGameAgainstMachine);
             this.r_GameBoardButtonMatrix = new Button[boardSizeAsInteger, boardSizeAsInteger];
-            tableLayoutPanelGameBoard.ColumnCount = boardSizeAsInteger;
-            tableLayoutPanelGameBoard.RowCount = boardSizeAsInteger;
 
         }
 
@@ -37,14 +35,25 @@ namespace Tic_Tac_Toe_GUI
                 for (int j = 0; j < m_GameLogic.GameBoardSize; j++)
                 {
                     Button boardMarkButton = new Button();
-                    boardMarkButton.Height = 30;
-                    boardMarkButton.Width = 30;
+                    boardMarkButton.Height = (flowLayoutPanelGameBoard.Height - 50) / m_GameLogic.GameBoardSize;
+                    boardMarkButton.Width = (flowLayoutPanelGameBoard.Width - 50) / m_GameLogic.GameBoardSize;
                     boardMarkButton.Name = string.Format("button{0}_{1}", i, j);
                     this.r_GameBoardButtonMatrix[i,j] = boardMarkButton;
-                    tableLayoutPanelGameBoard.Controls.Add(boardMarkButton, j, i);
+                    flowLayoutPanelGameBoard.Controls.Add(boardMarkButton);
                 }
             }
 
+
+        }
+
+        private void FormTicTacToeMisere_SizeChanged(object sender, EventArgs e)
+        {
+            /*tableLayoutPanelGameBoard.Height = this.Height - 10;
+            tableLayoutPanelGameBoard.Width = this.Width - 10;*/
+        }
+
+        private void labelScorePlayer1_Click(object sender, EventArgs e)
+        {
 
         }
     }
