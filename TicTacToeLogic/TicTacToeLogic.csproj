@@ -45,7 +45,6 @@
     <Compile Include="Utillity\eBoardMark.cs" />
     <Compile Include="Utillity\eBoardSize.cs" />
     <Compile Include="Utillity\eGameState.cs" />
-    <Compile Include="Utillity\eMainMenuUserChoice.cs" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />

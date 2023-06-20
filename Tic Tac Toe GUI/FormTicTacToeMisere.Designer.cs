@@ -62,7 +62,7 @@
             // flowLayoutPanelGameBoard
             // 
             this.flowLayoutPanelGameBoard.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.flowLayoutPanelGameBoard.Location = new System.Drawing.Point(63, 34);
+            this.flowLayoutPanelGameBoard.Location = new System.Drawing.Point(65, 34);
             this.flowLayoutPanelGameBoard.Name = "flowLayoutPanelGameBoard";
             this.flowLayoutPanelGameBoard.Size = new System.Drawing.Size(450, 450);
             this.flowLayoutPanelGameBoard.TabIndex = 3;

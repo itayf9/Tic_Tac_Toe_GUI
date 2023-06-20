@@ -70,6 +70,10 @@ namespace Tic_Tac_Toe_GUI
                     flowLayoutPanelGameBoard.Controls.Add(boardMarkButton);
                 }
             }
+
+            this.Height = flowLayoutPanelGameBoard.Height + 20;
+            this.Width = flowLayoutPanelGameBoard.Width + 140;
+            flowLayoutPanelGameBoard.Left = 70;
         }
 
         private void BoardMarkButton_Click(object sender, EventArgs e)
@@ -93,19 +97,6 @@ namespace Tic_Tac_Toe_GUI
             {
                 displayGameOverMessage(m_GameLogic.GameState);
             }
-
-            // check how we made the validation on EX2 // DONE
-
-            // check Game_state // DONE
-
-            // notification for finish game (with the overload static method of MessageBox.Show) // DONE
-
-            // reset game // DONE
-
-            // update the text of the button OR
-            // implement bonus (also add a comment in the sumbmission mail if we did so), All Yours
-
-            // decide if the game board is resizeable, All Yours
         }
 
         private bool checkIsGameOver()

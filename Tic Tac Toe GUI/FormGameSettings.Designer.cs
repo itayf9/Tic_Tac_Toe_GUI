@@ -46,9 +46,9 @@
             // buttonStartGame
             // 
             this.buttonStartGame.Enabled = false;
-            this.buttonStartGame.Location = new System.Drawing.Point(130, 325);
+            this.buttonStartGame.Location = new System.Drawing.Point(61, 325);
             this.buttonStartGame.Name = "buttonStartGame";
-            this.buttonStartGame.Size = new System.Drawing.Size(175, 66);
+            this.buttonStartGame.Size = new System.Drawing.Size(343, 66);
             this.buttonStartGame.TabIndex = 0;
             this.buttonStartGame.Text = "Start!";
             this.buttonStartGame.UseVisualStyleBackColor = true;
@@ -57,7 +57,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 20);
+            this.label1.Location = new System.Drawing.Point(57, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 20);
             this.label1.TabIndex = 1;
@@ -66,7 +66,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 74);
+            this.label2.Location = new System.Drawing.Point(57, 59);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 20);
             this.label2.TabIndex = 2;
@@ -75,7 +75,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 199);
+            this.label3.Location = new System.Drawing.Point(57, 200);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(91, 20);
             this.label3.TabIndex = 3;
@@ -84,17 +84,17 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 254);
+            this.label4.Location = new System.Drawing.Point(57, 241);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 20);
+            this.label4.Size = new System.Drawing.Size(53, 20);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Rows";
+            this.label4.Text = "Rows:";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(235, 250);
+            this.label5.Location = new System.Drawing.Point(295, 240);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(44, 20);
             this.label5.TabIndex = 5;
@@ -103,7 +103,7 @@
             // checkBoxPlayer2
             // 
             this.checkBoxPlayer2.AutoSize = true;
-            this.checkBoxPlayer2.Location = new System.Drawing.Point(16, 112);
+            this.checkBoxPlayer2.Location = new System.Drawing.Point(57, 97);
             this.checkBoxPlayer2.Name = "checkBoxPlayer2";
             this.checkBoxPlayer2.Size = new System.Drawing.Size(95, 24);
             this.checkBoxPlayer2.TabIndex = 7;
@@ -113,25 +113,25 @@
             // 
             // textBoxPlayer1
             // 
-            this.textBoxPlayer1.Location = new System.Drawing.Point(180, 74);
+            this.textBoxPlayer1.Location = new System.Drawing.Point(180, 59);
             this.textBoxPlayer1.Name = "textBoxPlayer1";
-            this.textBoxPlayer1.Size = new System.Drawing.Size(225, 26);
+            this.textBoxPlayer1.Size = new System.Drawing.Size(224, 26);
             this.textBoxPlayer1.TabIndex = 0;
             this.textBoxPlayer1.TextChanged += new System.EventHandler(this.textBoxPlayer1_TextChanged);
             // 
             // textBoxPlayer2
             // 
             this.textBoxPlayer2.Enabled = false;
-            this.textBoxPlayer2.Location = new System.Drawing.Point(180, 110);
+            this.textBoxPlayer2.Location = new System.Drawing.Point(180, 95);
             this.textBoxPlayer2.Name = "textBoxPlayer2";
-            this.textBoxPlayer2.Size = new System.Drawing.Size(225, 26);
+            this.textBoxPlayer2.Size = new System.Drawing.Size(224, 26);
             this.textBoxPlayer2.TabIndex = 9;
             this.textBoxPlayer2.Text = "[Computer]";
             this.textBoxPlayer2.TextChanged += new System.EventHandler(this.textBoxPlayer2_TextChanged);
             // 
             // numericUpDownRows
             // 
-            this.numericUpDownRows.Location = new System.Drawing.Point(80, 248);
+            this.numericUpDownRows.Location = new System.Drawing.Point(116, 239);
             this.numericUpDownRows.Maximum = new decimal(new int[] {
             9,
             0,
@@ -143,7 +143,7 @@
             0,
             0});
             this.numericUpDownRows.Name = "numericUpDownRows";
-            this.numericUpDownRows.Size = new System.Drawing.Size(120, 26);
+            this.numericUpDownRows.Size = new System.Drawing.Size(59, 26);
             this.numericUpDownRows.TabIndex = 10;
             this.numericUpDownRows.Value = new decimal(new int[] {
             3,
@@ -154,7 +154,7 @@
             // 
             // numericUpDownCols
             // 
-            this.numericUpDownCols.Location = new System.Drawing.Point(285, 248);
+            this.numericUpDownCols.Location = new System.Drawing.Point(345, 238);
             this.numericUpDownCols.Maximum = new decimal(new int[] {
             9,
             0,
@@ -166,7 +166,7 @@
             0,
             0});
             this.numericUpDownCols.Name = "numericUpDownCols";
-            this.numericUpDownCols.Size = new System.Drawing.Size(120, 26);
+            this.numericUpDownCols.Size = new System.Drawing.Size(59, 26);
             this.numericUpDownCols.TabIndex = 11;
             this.numericUpDownCols.Value = new decimal(new int[] {
             3,
