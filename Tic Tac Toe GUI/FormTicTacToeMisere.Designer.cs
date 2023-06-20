@@ -77,6 +77,8 @@
             this.labelNamePlayer1.Size = new System.Drawing.Size(73, 20);
             this.labelNamePlayer1.TabIndex = 4;
             this.labelNamePlayer1.Text = "Player 1";
+            this.labelNamePlayer1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelNamePlayer1.Click += new System.EventHandler(this.labelNamePlayer1_Click);
             // 
             // labelNamePlayer2
             // 
@@ -87,6 +89,7 @@
             this.labelNamePlayer2.Size = new System.Drawing.Size(79, 20);
             this.labelNamePlayer2.TabIndex = 5;
             this.labelNamePlayer2.Text = "Computer";
+            this.labelNamePlayer2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // labelSemicolonPlayer1
             // 

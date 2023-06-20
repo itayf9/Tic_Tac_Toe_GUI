@@ -30,20 +30,20 @@ namespace Tic_Tac_Toe_GUI
             this.m_GameLogic = new GameLogic(i_BoardSize, i_IsGameAgainstMachine, i_NameOfPlayer1, i_NameOfPlayer2);
             this.r_GameBoardButtonToLocation = new Dictionary<Button, Point>();
             this.r_LocationToGameBoardButton = new Dictionary<Point, Button>();
-            m_GameLogic.TurnChanged += changeTurnInUI;
+            m_GameLogic.TurnChanged += labels_TurnChanged;
 
         }
 
         private void FormTicTacToeMisere_Load(object sender, EventArgs e)
         {
             labelNamePlayer1.Text = m_GameLogic.GetNameOfPlayer(0);
-            labelSemicolonPlayer1.Location = new Point(labelNamePlayer1.Location.X + labelNamePlayer1.Width + 2, labelSemicolonPlayer1.Location.Y);
+            labelSemicolonPlayer1.Location = new Point(labelNamePlayer1.Location.X + labelNamePlayer1.Width, labelSemicolonPlayer1.Location.Y);
             labelScorePlayer1.Text = m_GameLogic.GetScoreOfPlayer(0).ToString();
             labelScorePlayer1.Location = new Point(labelSemicolonPlayer1.Location.X + labelSemicolonPlayer1.Width + 2, labelScorePlayer1.Location.Y);
 
             labelNamePlayer2.Text = m_GameLogic.GetNameOfPlayer(1);
             labelNamePlayer2.Location = new Point(labelScorePlayer1.Location.X + labelScorePlayer1.Width + 10, labelNamePlayer2.Location.Y);
-            labelSemicolonPlayer2.Location = new Point(labelNamePlayer2.Location.X + labelNamePlayer2.Width + 2, labelSemicolonPlayer2.Location.Y);
+            labelSemicolonPlayer2.Location = new Point(labelNamePlayer2.Location.X + labelNamePlayer2.Width, labelSemicolonPlayer2.Location.Y);
             labelScorePlayer2.Text = m_GameLogic.GetScoreOfPlayer(1).ToString();
             labelScorePlayer2.Location = new Point(labelSemicolonPlayer2.Location.X + labelSemicolonPlayer2.Width + 2, labelScorePlayer2.Location.Y);
 
@@ -163,7 +163,7 @@ namespace Tic_Tac_Toe_GUI
         {
         }
 
-        private void changeTurnInUI(int i_NewTurnValue)
+        private void labels_TurnChanged(int i_NewTurnValue)
         {
             if (i_NewTurnValue == 0)
             {
@@ -193,6 +193,11 @@ namespace Tic_Tac_Toe_GUI
                 boardMarkbutton.Text = string.Empty;
                 boardMarkbutton.Enabled = v_IsButtonEnabled;
             }
+        }
+
+        private void labelNamePlayer1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
