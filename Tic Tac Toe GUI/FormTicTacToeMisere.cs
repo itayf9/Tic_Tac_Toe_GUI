@@ -15,10 +15,10 @@ namespace Tic_Tac_Toe_GUI
     public partial class FormTicTacToeMisere : Form
     {
         private const bool v_IsButtonEnabled = true;
+        private const string k_GameOverMessageBoxTitle = "Game Over!";
         private GameLogic m_GameLogic;
         private readonly Dictionary<Button, Point> r_GameBoardButtonToLocation;
         private readonly Dictionary<Point, Button> r_LocationToGameBoardButton;
-
 
         public FormTicTacToeMisere(eBoardSize i_BoardSize, bool i_IsGameAgainstMachine, string i_NameOfPlayer1, string i_NameOfPlayer2)
         {
@@ -61,29 +61,26 @@ namespace Tic_Tac_Toe_GUI
             Button clickedButton = sender as Button;
             Point locationOfClickedButton = this.r_GameBoardButtonToLocation[clickedButton];
 
+            m_GameLogic.ApplyMove(locationOfClickedButton);
+            clickedButton.Enabled = !v_IsButtonEnabled;
             if (m_GameLogic.IsGameAgainstMachine)
             {
-                m_GameLogic.ApplyMove(locationOfClickedButton);
-                clickedButton.Text = "X";
-                clickedButton.Enabled = !v_IsButtonEnabled;
+                clickedButton.Text = eBoardMark.PlayerX.ToString();
                 if (!checkIsGameOverAndDisplayMessage())
                 {
                     Point locationOfComputerButtonMove = m_GameLogic.GenerateMachineMove();
                     m_GameLogic.ApplyMove(locationOfComputerButtonMove);
                     Button computerButtonMove = r_LocationToGameBoardButton[locationOfComputerButtonMove];
-                    computerButtonMove.Text = "O";
+                    computerButtonMove.Text = eBoardMark.PlayerO.ToString();
                     computerButtonMove.Enabled = !v_IsButtonEnabled;
                 }
             }
             else
             {
-                m_GameLogic.ApplyMove(locationOfClickedButton);
-                clickedButton.Enabled = !v_IsButtonEnabled;
-                clickedButton.Text = m_GameLogic.Turn == 0 ? "X" : "O";
+                clickedButton.Text = m_GameLogic.Turn == 0 ? eBoardMark.PlayerX.ToString() : eBoardMark.PlayerO.ToString();
             }
 
             checkIsGameOverAndDisplayMessage();
-
 
             // check how we made the validation on EX2 // DONE
 
@@ -105,7 +102,6 @@ namespace Tic_Tac_Toe_GUI
             bool isGameOver = gameStateAfterMove != eGameState.Running;
             if (isGameOver)
             {
-
                 labelScorePlayer1.Text = m_GameLogic.GetScoreOfPlayer(0).ToString();
                 labelScorePlayer2.Text = m_GameLogic.GetScoreOfPlayer(1).ToString();
 
@@ -113,7 +109,7 @@ namespace Tic_Tac_Toe_GUI
                 string nameOfPlayer2 = m_GameLogic.GetNameOfPlayer(1);
 
                 string messageForUI = generateUIMessageFromGameState(gameStateAfterMove, nameOfPlayer1, nameOfPlayer2);
-                var result = MessageBox.Show(messageForUI, "Game Over!", MessageBoxButtons.YesNo);
+                DialogResult result = MessageBox.Show(messageForUI, k_GameOverMessageBoxTitle, MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
                     restartGame();
@@ -124,48 +120,48 @@ namespace Tic_Tac_Toe_GUI
                     this.Close();
                 }
             }
+
             return isGameOver;
         }
 
         private string generateUIMessageFromGameState(eGameState i_GameState, string i_NameOfPlayer1, string i_NameOfPlayer2)
         {
-            string messageForUI = "";
+            string messageForUI = string.Empty;
+            string winnerMessage = "The winner is {0}!\nWould you like to play another round?";
+            string tieMessage = "Tie!\nWould you like to play another round?";
 
             switch (i_GameState)
             {
                 case eGameState.FinishedTie:
-                    messageForUI = "Tie!\nWould you like to play another round?";
+                    messageForUI = tieMessage;
                     break;
                 case eGameState.FinishedP1:
-                    messageForUI = "The winner is " + i_NameOfPlayer1 + "!\nWould you like to play another round?";
+                    messageForUI = string.Format(winnerMessage, i_NameOfPlayer1);
                     break;
                 case eGameState.FinishedP2:
-                    messageForUI = "The winner is " + i_NameOfPlayer2 + "!\nWould you like to play another round?";
+                    messageForUI = string.Format(winnerMessage, i_NameOfPlayer2);
                     break;
             }
+
             return messageForUI;
         }
 
         private void FormTicTacToeMisere_SizeChanged(object sender, EventArgs e)
         {
-            /*tableLayoutPanelGameBoard.Height = this.Height - 10;
-            tableLayoutPanelGameBoard.Width = this.Width - 10;*/
         }
 
         private void labelScorePlayer1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void restartGame()
         {
             m_GameLogic.ResetGameBoard();
-            foreach (KeyValuePair<Button, Point> buttonToLocationEntry in r_GameBoardButtonToLocation)
+            foreach (Button boardMarkbutton in r_GameBoardButtonToLocation.Keys)
             {
-                buttonToLocationEntry.Key.Text = string.Empty;
-                buttonToLocationEntry.Key.Enabled = v_IsButtonEnabled;
+                boardMarkbutton.Text = string.Empty;
+                boardMarkbutton.Enabled = v_IsButtonEnabled;
             }
         }
-
     }
 }

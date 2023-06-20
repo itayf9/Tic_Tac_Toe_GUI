@@ -33,17 +33,17 @@ namespace Tic_Tac_Toe_GUI
         private void checkBoxPlayer2_CheckedChanged(object sender, EventArgs e)
         {
             const bool v_IsTextBoxEnable = true;
-            const string k_ComputerName = "[Computer]";
+            const string k_ComputerName = "Computer";
 
             if (checkBoxPlayer2.Checked)
             {
                 textBoxPlayer2.Enabled = v_IsTextBoxEnable;
-                textBoxPlayer2.Text = "";
+                textBoxPlayer2.Text = string.Empty;
             }
             else
             {
                 textBoxPlayer2.Enabled = !v_IsTextBoxEnable;
-                textBoxPlayer2.Text = k_ComputerName;
+                textBoxPlayer2.Text = string.Format("[{0}]", k_ComputerName);
             }
         }
 
