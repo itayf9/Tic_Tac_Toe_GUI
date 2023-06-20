@@ -29,6 +29,7 @@ namespace Tic_Tac_Toe_GUI
             this.m_GameLogic = new GameLogic(i_BoardSize, i_IsGameAgainstMachine, i_NameOfPlayer1, i_NameOfPlayer2);
             this.r_GameBoardButtonToLocation = new Dictionary<Button, Point>();
             this.r_LocationToGameBoardButton = new Dictionary<Point, Button>();
+            m_GameLogic.TurnChanged += changeTurnInUI;
 
         }
 
@@ -65,19 +66,19 @@ namespace Tic_Tac_Toe_GUI
             clickedButton.Enabled = !v_IsButtonEnabled;
             if (m_GameLogic.IsGameAgainstMachine)
             {
-                clickedButton.Text = eBoardMark.PlayerX.ToString();
+                clickedButton.Text = ((char)eBoardMark.PlayerX).ToString();
                 if (!checkIsGameOverAndDisplayMessage())
                 {
                     Point locationOfComputerButtonMove = m_GameLogic.GenerateMachineMove();
                     m_GameLogic.ApplyMove(locationOfComputerButtonMove);
                     Button computerButtonMove = r_LocationToGameBoardButton[locationOfComputerButtonMove];
-                    computerButtonMove.Text = eBoardMark.PlayerO.ToString();
+                    computerButtonMove.Text = ((char)eBoardMark.PlayerO).ToString();
                     computerButtonMove.Enabled = !v_IsButtonEnabled;
                 }
             }
             else
             {
-                clickedButton.Text = m_GameLogic.Turn == 0 ? eBoardMark.PlayerX.ToString() : eBoardMark.PlayerO.ToString();
+                clickedButton.Text = m_GameLogic.Turn == 0 ? ((char)eBoardMark.PlayerX).ToString() : ((char)eBoardMark.PlayerO).ToString();
             }
 
             checkIsGameOverAndDisplayMessage();
@@ -152,6 +153,24 @@ namespace Tic_Tac_Toe_GUI
 
         private void labelScorePlayer1_Click(object sender, EventArgs e)
         {
+        }
+
+        private void changeTurnInUI(int i_NewTurnValue)
+        {
+            if (i_NewTurnValue == 0)
+            {
+                labelNamePlayer1.Font = new Font(labelNamePlayer1.Font, FontStyle.Bold);
+                labelScorePlayer1.Font = new Font(labelScorePlayer1.Font, FontStyle.Bold);
+                labelNamePlayer2.Font = new Font(labelNamePlayer2.Font, FontStyle.Regular);
+                labelScorePlayer2.Font = new Font(labelScorePlayer2.Font, FontStyle.Regular);
+            }
+            else if (i_NewTurnValue == 1)
+            {
+                labelNamePlayer2.Font = new Font(labelNamePlayer2.Font, FontStyle.Bold);
+                labelScorePlayer2.Font = new Font(labelScorePlayer2.Font, FontStyle.Bold);
+                labelNamePlayer1.Font = new Font(labelNamePlayer1.Font, FontStyle.Regular);
+                labelScorePlayer1.Font = new Font(labelScorePlayer1.Font, FontStyle.Regular);
+            }
         }
 
         private void restartGame()

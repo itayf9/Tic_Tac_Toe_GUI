@@ -64,5 +64,10 @@ namespace Tic_Tac_Toe_GUI
         {
             buttonStartGame.Enabled = textBoxPlayer1.Text != string.Empty;
         }
+
+        private void textBoxPlayer2_TextChanged(object sender, EventArgs e)
+        {
+            buttonStartGame.Enabled = textBoxPlayer2.Text != string.Empty;
+        }
     }
 }

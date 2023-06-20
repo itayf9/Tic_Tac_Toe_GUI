@@ -127,6 +127,7 @@
             this.textBoxPlayer2.Size = new System.Drawing.Size(225, 26);
             this.textBoxPlayer2.TabIndex = 9;
             this.textBoxPlayer2.Text = "[Computer]";
+            this.textBoxPlayer2.TextChanged += new System.EventHandler(this.textBoxPlayer2_TextChanged);
             // 
             // numericUpDownRows
             // 

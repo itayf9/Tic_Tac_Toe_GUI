@@ -41,9 +41,10 @@
             // 
             this.labelScorePlayer1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.labelScorePlayer1.AutoSize = true;
+            this.labelScorePlayer1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.labelScorePlayer1.Location = new System.Drawing.Point(161, 510);
             this.labelScorePlayer1.Name = "labelScorePlayer1";
-            this.labelScorePlayer1.Size = new System.Drawing.Size(18, 20);
+            this.labelScorePlayer1.Size = new System.Drawing.Size(19, 20);
             this.labelScorePlayer1.TabIndex = 0;
             this.labelScorePlayer1.Text = "0";
             this.labelScorePlayer1.Click += new System.EventHandler(this.labelScorePlayer1_Click);
@@ -69,9 +70,10 @@
             // 
             this.labelNamePlayer1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.labelNamePlayer1.AutoSize = true;
+            this.labelNamePlayer1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.labelNamePlayer1.Location = new System.Drawing.Point(71, 510);
             this.labelNamePlayer1.Name = "labelNamePlayer1";
-            this.labelNamePlayer1.Size = new System.Drawing.Size(65, 20);
+            this.labelNamePlayer1.Size = new System.Drawing.Size(73, 20);
             this.labelNamePlayer1.TabIndex = 4;
             this.labelNamePlayer1.Text = "Player 1";
             // 
@@ -89,9 +91,10 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label1.Location = new System.Drawing.Point(142, 510);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(13, 20);
+            this.label1.Size = new System.Drawing.Size(14, 20);
             this.label1.TabIndex = 6;
             this.label1.Text = ":";
             // 
