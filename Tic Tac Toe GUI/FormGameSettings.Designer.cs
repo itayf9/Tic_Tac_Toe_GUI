@@ -49,7 +49,7 @@
             this.buttonStartGame.Location = new System.Drawing.Point(61, 325);
             this.buttonStartGame.Name = "buttonStartGame";
             this.buttonStartGame.Size = new System.Drawing.Size(343, 66);
-            this.buttonStartGame.TabIndex = 0;
+            this.buttonStartGame.TabIndex = 5;
             this.buttonStartGame.Text = "Start!";
             this.buttonStartGame.UseVisualStyleBackColor = true;
             this.buttonStartGame.Click += new System.EventHandler(this.buttonStartGame_Click);
@@ -105,7 +105,7 @@
             this.checkBoxPlayer2.Location = new System.Drawing.Point(57, 97);
             this.checkBoxPlayer2.Name = "checkBoxPlayer2";
             this.checkBoxPlayer2.Size = new System.Drawing.Size(95, 24);
-            this.checkBoxPlayer2.TabIndex = 7;
+            this.checkBoxPlayer2.TabIndex = 1;
             this.checkBoxPlayer2.Text = "Player 2:";
             this.checkBoxPlayer2.UseVisualStyleBackColor = true;
             this.checkBoxPlayer2.CheckedChanged += new System.EventHandler(this.checkBoxPlayer2_CheckedChanged);
@@ -124,7 +124,7 @@
             this.textBoxPlayer2.Location = new System.Drawing.Point(180, 95);
             this.textBoxPlayer2.Name = "textBoxPlayer2";
             this.textBoxPlayer2.Size = new System.Drawing.Size(224, 26);
-            this.textBoxPlayer2.TabIndex = 9;
+            this.textBoxPlayer2.TabIndex = 2;
             this.textBoxPlayer2.Text = "[Computer]";
             this.textBoxPlayer2.TextChanged += new System.EventHandler(this.textBoxPlayer2_TextChanged);
             // 
@@ -143,7 +143,7 @@
             0});
             this.numericUpDownRows.Name = "numericUpDownRows";
             this.numericUpDownRows.Size = new System.Drawing.Size(59, 26);
-            this.numericUpDownRows.TabIndex = 10;
+            this.numericUpDownRows.TabIndex = 3;
             this.numericUpDownRows.Value = new decimal(new int[] {
             3,
             0,
@@ -166,7 +166,7 @@
             0});
             this.numericUpDownCols.Name = "numericUpDownCols";
             this.numericUpDownCols.Size = new System.Drawing.Size(59, 26);
-            this.numericUpDownCols.TabIndex = 11;
+            this.numericUpDownCols.TabIndex = 4;
             this.numericUpDownCols.Value = new decimal(new int[] {
             3,
             0,
