@@ -47,7 +47,6 @@
             this.labelScorePlayer1.Size = new System.Drawing.Size(19, 20);
             this.labelScorePlayer1.TabIndex = 0;
             this.labelScorePlayer1.Text = "0";
-            this.labelScorePlayer1.Click += new System.EventHandler(this.labelScorePlayer1_Click);
             // 
             // labelScorePlayer2
             // 
@@ -78,7 +77,6 @@
             this.labelNamePlayer1.TabIndex = 4;
             this.labelNamePlayer1.Text = "Player 1";
             this.labelNamePlayer1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.labelNamePlayer1.Click += new System.EventHandler(this.labelNamePlayer1_Click);
             // 
             // labelNamePlayer2
             // 
@@ -128,7 +126,6 @@
             this.Name = "FormTicTacToeMisere";
             this.Text = "Tic Tac Toe Misere";
             this.Load += new System.EventHandler(this.FormTicTacToeMisere_Load);
-            this.SizeChanged += new System.EventHandler(this.FormTicTacToeMisere_SizeChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 

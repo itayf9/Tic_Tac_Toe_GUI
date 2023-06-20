@@ -16,6 +16,7 @@ namespace TicTacToeConsole.Model
         private int m_CountOfMarkedCells;
 
         public event Action<int> TurnChanged;
+
         public event Action<Point, eBoardMark> BoardChanged;
 
         public GameLogic(eBoardSize i_BoardSize, bool i_IsGameAgainstMachine, string i_NameOfPlayer1, string i_NameOfPlayer2)

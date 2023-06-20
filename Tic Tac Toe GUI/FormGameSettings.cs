@@ -13,8 +13,8 @@ namespace Tic_Tac_Toe_GUI
 {
     public partial class FormGameSettings : Form
     {
-
         private const string k_ComputerName = "Computer";
+
         public FormGameSettings()
         {
             InitializeComponent();
@@ -26,11 +26,6 @@ namespace Tic_Tac_Toe_GUI
             this.Hide();
             new FormTicTacToeMisere((eBoardSize)numericUpDownRows.Value, !checkBoxPlayer2.Checked, textBoxPlayer1.Text, nameOfplayer2).ShowDialog();
             this.Close();
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void checkBoxPlayer2_CheckedChanged(object sender, EventArgs e)

@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TicTacToeConsole.Model;
 using TicTacToeConsole.Utillity;
@@ -14,12 +9,12 @@ namespace Tic_Tac_Toe_GUI
 {
     public partial class FormTicTacToeMisere : Form
     {
+        private readonly Dictionary<Button, Point> r_GameBoardButtonToLocation;
+        private readonly Dictionary<Point, Button> r_LocationToGameBoardButton;
         private const bool v_IsButtonEnabled = true;
         private const string k_WinnerMessageBoxTitle = "A Win!";
         private const string k_TieMessageBoxTitle = "A Tie!";
         private GameLogic m_GameLogic;
-        private readonly Dictionary<Button, Point> r_GameBoardButtonToLocation;
-        private readonly Dictionary<Point, Button> r_LocationToGameBoardButton;
 
         public FormTicTacToeMisere(eBoardSize i_BoardSize, bool i_IsGameAgainstMachine, string i_NameOfPlayer1, string i_NameOfPlayer2)
         {
@@ -32,7 +27,6 @@ namespace Tic_Tac_Toe_GUI
             this.r_LocationToGameBoardButton = new Dictionary<Point, Button>();
             m_GameLogic.TurnChanged += labels_TurnChanged;
             m_GameLogic.BoardChanged += markButtons_BoardChanged;
-
         }
 
         private void markButtons_BoardChanged(Point i_LocationOfChange, eBoardMark i_SymbolToPutInLocation)
@@ -149,14 +143,6 @@ namespace Tic_Tac_Toe_GUI
             return messageForUI;
         }
 
-        private void FormTicTacToeMisere_SizeChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void labelScorePlayer1_Click(object sender, EventArgs e)
-        {
-        }
-
         private void labels_TurnChanged(int i_NewTurnValue)
         {
             if (i_NewTurnValue == 0)
@@ -187,11 +173,6 @@ namespace Tic_Tac_Toe_GUI
                 boardMarkbutton.Text = string.Empty;
                 boardMarkbutton.Enabled = v_IsButtonEnabled;
             }
-        }
-
-        private void labelNamePlayer1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

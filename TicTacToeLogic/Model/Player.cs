@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TicTacToeConsole.Utillity;
+﻿using TicTacToeConsole.Utillity;
 
 namespace TicTacToeConsole.Model
 {
     public class Player
     {
-        private int m_Score;
         private readonly eBoardMark r_Symbol;
         private readonly string r_Name;
+        private int m_Score;
 
         public Player(eBoardMark i_Symbol, string i_Name)
         {
