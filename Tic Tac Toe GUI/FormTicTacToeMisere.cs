@@ -15,7 +15,8 @@ namespace Tic_Tac_Toe_GUI
     public partial class FormTicTacToeMisere : Form
     {
         private const bool v_IsButtonEnabled = true;
-        private const string k_GameOverMessageBoxTitle = "Game Over!";
+        private const string k_WinnerMessageBoxTitle = "A Win!";
+        private const string k_TieMessageBoxTitle = "A Tie!";
         private GameLogic m_GameLogic;
         private readonly Dictionary<Button, Point> r_GameBoardButtonToLocation;
         private readonly Dictionary<Point, Button> r_LocationToGameBoardButton;
@@ -116,7 +117,8 @@ namespace Tic_Tac_Toe_GUI
                 string nameOfPlayer2 = m_GameLogic.GetNameOfPlayer(1);
 
                 string messageForUI = generateUIMessageFromGameState(gameStateAfterMove, nameOfPlayer1, nameOfPlayer2);
-                DialogResult result = MessageBox.Show(messageForUI, k_GameOverMessageBoxTitle, MessageBoxButtons.YesNo);
+                string gameOverMessageBoxTitle = gameStateAfterMove == eGameState.FinishedTie ? k_TieMessageBoxTitle : k_WinnerMessageBoxTitle;
+                DialogResult result = MessageBox.Show(messageForUI, gameOverMessageBoxTitle, MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
                     restartGame();
