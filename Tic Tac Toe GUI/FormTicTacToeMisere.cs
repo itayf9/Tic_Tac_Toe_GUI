@@ -31,7 +31,15 @@ namespace Tic_Tac_Toe_GUI
             this.r_GameBoardButtonToLocation = new Dictionary<Button, Point>();
             this.r_LocationToGameBoardButton = new Dictionary<Point, Button>();
             m_GameLogic.TurnChanged += labels_TurnChanged;
+            m_GameLogic.BoardChanged += markButtons_BoardChanged;
 
+        }
+
+        private void markButtons_BoardChanged(Point i_LocationOfChange, eBoardMark i_SymbolToPutInLocation)
+        {
+            Button gameBoardButtonToChangeText = r_LocationToGameBoardButton[i_LocationOfChange];
+            gameBoardButtonToChangeText.Text = ((char)i_SymbolToPutInLocation).ToString();
+            gameBoardButtonToChangeText.Enabled = !v_IsButtonEnabled;
         }
 
         private void FormTicTacToeMisere_Load(object sender, EventArgs e)
@@ -70,25 +78,21 @@ namespace Tic_Tac_Toe_GUI
             Point locationOfClickedButton = this.r_GameBoardButtonToLocation[clickedButton];
 
             m_GameLogic.ApplyMove(locationOfClickedButton);
-            clickedButton.Enabled = !v_IsButtonEnabled;
+
             if (m_GameLogic.IsGameAgainstMachine)
             {
-                clickedButton.Text = ((char)eBoardMark.PlayerX).ToString();
-                if (!checkIsGameOverAndDisplayMessage())
+                if (!checkIsGameOver())
                 {
                     Point locationOfComputerButtonMove = m_GameLogic.GenerateMachineMove();
                     m_GameLogic.ApplyMove(locationOfComputerButtonMove);
                     Button computerButtonMove = r_LocationToGameBoardButton[locationOfComputerButtonMove];
-                    computerButtonMove.Text = ((char)eBoardMark.PlayerO).ToString();
-                    computerButtonMove.Enabled = !v_IsButtonEnabled;
                 }
             }
-            else
-            {
-                clickedButton.Text = m_GameLogic.Turn == 0 ? ((char)eBoardMark.PlayerX).ToString() : ((char)eBoardMark.PlayerO).ToString();
-            }
 
-            checkIsGameOverAndDisplayMessage();
+            if (checkIsGameOver())
+            {
+                displayGameOverMessage(m_GameLogic.GameState);
+            }
 
             // check how we made the validation on EX2 // DONE
 
@@ -104,33 +108,32 @@ namespace Tic_Tac_Toe_GUI
             // decide if the game board is resizeable, All Yours
         }
 
-        private bool checkIsGameOverAndDisplayMessage()
+        private bool checkIsGameOver()
         {
             eGameState gameStateAfterMove = m_GameLogic.GameState;
-            bool isGameOver = gameStateAfterMove != eGameState.Running;
-            if (isGameOver)
+            return gameStateAfterMove != eGameState.Running;
+        }
+
+        private void displayGameOverMessage(eGameState i_GameStateAfterMove)
+        {
+            labelScorePlayer1.Text = m_GameLogic.GetScoreOfPlayer(0).ToString();
+            labelScorePlayer2.Text = m_GameLogic.GetScoreOfPlayer(1).ToString();
+
+            string nameOfPlayer1 = m_GameLogic.GetNameOfPlayer(0);
+            string nameOfPlayer2 = m_GameLogic.GetNameOfPlayer(1);
+
+            string messageForUI = generateUIMessageFromGameState(i_GameStateAfterMove, nameOfPlayer1, nameOfPlayer2);
+            string gameOverMessageBoxTitle = i_GameStateAfterMove == eGameState.FinishedTie ? k_TieMessageBoxTitle : k_WinnerMessageBoxTitle;
+            DialogResult result = MessageBox.Show(messageForUI, gameOverMessageBoxTitle, MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
             {
-                labelScorePlayer1.Text = m_GameLogic.GetScoreOfPlayer(0).ToString();
-                labelScorePlayer2.Text = m_GameLogic.GetScoreOfPlayer(1).ToString();
-
-                string nameOfPlayer1 = m_GameLogic.GetNameOfPlayer(0);
-                string nameOfPlayer2 = m_GameLogic.GetNameOfPlayer(1);
-
-                string messageForUI = generateUIMessageFromGameState(gameStateAfterMove, nameOfPlayer1, nameOfPlayer2);
-                string gameOverMessageBoxTitle = gameStateAfterMove == eGameState.FinishedTie ? k_TieMessageBoxTitle : k_WinnerMessageBoxTitle;
-                DialogResult result = MessageBox.Show(messageForUI, gameOverMessageBoxTitle, MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
-                {
-                    restartGame();
-                }
-
-                if (result == DialogResult.No)
-                {
-                    this.Close();
-                }
+                restartGame();
             }
 
-            return isGameOver;
+            if (result == DialogResult.No)
+            {
+                this.Close();
+            }
         }
 
         private string generateUIMessageFromGameState(eGameState i_GameState, string i_NameOfPlayer1, string i_NameOfPlayer2)

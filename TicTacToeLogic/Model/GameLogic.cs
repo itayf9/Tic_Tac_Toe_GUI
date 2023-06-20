@@ -16,6 +16,7 @@ namespace TicTacToeConsole.Model
         private int m_CountOfMarkedCells;
 
         public event Action<int> TurnChanged;
+        public event Action<Point, eBoardMark> BoardChanged;
 
         public GameLogic(eBoardSize i_BoardSize, bool i_IsGameAgainstMachine, string i_NameOfPlayer1, string i_NameOfPlayer2)
         {
@@ -127,6 +128,7 @@ namespace TicTacToeConsole.Model
             Player playerWithTheTurn = m_Players[m_Turn];
 
             m_GameBoard[i_GameMove.Y, i_GameMove.X] = playerWithTheTurn.Symbol;
+            OnBoardChanged(i_GameMove, playerWithTheTurn.Symbol);
             m_CountOfMarkedCells++;
 
             checkAndUpdateGameState(i_GameMove, playerWithTheTurn);
@@ -211,6 +213,14 @@ namespace TicTacToeConsole.Model
             else
             {
                 m_GameState = eGameState.Running;
+            }
+        }
+
+        protected virtual void OnBoardChanged(Point i_LocationOfChange, eBoardMark i_SymbolToPutInLocation)
+        {
+            if (BoardChanged != null)
+            {
+                BoardChanged.Invoke(i_LocationOfChange, i_SymbolToPutInLocation);
             }
         }
 
