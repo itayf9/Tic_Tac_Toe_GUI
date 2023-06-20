@@ -107,15 +107,15 @@ namespace Tic_Tac_Toe_GUI
             string nameOfPlayer1 = m_GameLogic.GetNameOfPlayer(0);
             string nameOfPlayer2 = m_GameLogic.GetNameOfPlayer(1);
 
-            string messageForUI = generateUIMessageFromGameState(i_GameStateAfterMove, nameOfPlayer1, nameOfPlayer2);
+            string gameOverMessageForUI = generateUIMessageFromGameState(i_GameStateAfterMove, nameOfPlayer1, nameOfPlayer2);
             string gameOverMessageBoxTitle = i_GameStateAfterMove == eGameState.FinishedTie ? k_TieMessageBoxTitle : k_WinnerMessageBoxTitle;
-            DialogResult result = MessageBox.Show(messageForUI, gameOverMessageBoxTitle, MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
+            DialogResult resultFromGameOverDialog = MessageBox.Show(gameOverMessageForUI, gameOverMessageBoxTitle, MessageBoxButtons.YesNo);
+            if (resultFromGameOverDialog == DialogResult.Yes)
             {
                 restartGame();
             }
 
-            if (result == DialogResult.No)
+            if (resultFromGameOverDialog == DialogResult.No)
             {
                 this.Close();
             }
