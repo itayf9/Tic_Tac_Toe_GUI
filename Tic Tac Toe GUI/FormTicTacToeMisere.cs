@@ -36,9 +36,15 @@ namespace Tic_Tac_Toe_GUI
         private void FormTicTacToeMisere_Load(object sender, EventArgs e)
         {
             labelNamePlayer1.Text = m_GameLogic.GetNameOfPlayer(0);
-            labelNamePlayer2.Text = m_GameLogic.GetNameOfPlayer(1);
+            labelSemicolonPlayer1.Location = new Point(labelNamePlayer1.Location.X + labelNamePlayer1.Width + 2, labelSemicolonPlayer1.Location.Y);
             labelScorePlayer1.Text = m_GameLogic.GetScoreOfPlayer(0).ToString();
+            labelScorePlayer1.Location = new Point(labelSemicolonPlayer1.Location.X + labelSemicolonPlayer1.Width + 2, labelScorePlayer1.Location.Y);
+
+            labelNamePlayer2.Text = m_GameLogic.GetNameOfPlayer(1);
+            labelNamePlayer2.Location = new Point(labelScorePlayer1.Location.X + labelScorePlayer1.Width + 10, labelNamePlayer2.Location.Y);
+            labelSemicolonPlayer2.Location = new Point(labelNamePlayer2.Location.X + labelNamePlayer2.Width + 2, labelSemicolonPlayer2.Location.Y);
             labelScorePlayer2.Text = m_GameLogic.GetScoreOfPlayer(1).ToString();
+            labelScorePlayer2.Location = new Point(labelSemicolonPlayer2.Location.X + labelSemicolonPlayer2.Width + 2, labelScorePlayer2.Location.Y);
 
             for (int i = 0; i < m_GameLogic.GameBoardSize; i++)
             {
@@ -160,15 +166,19 @@ namespace Tic_Tac_Toe_GUI
             if (i_NewTurnValue == 0)
             {
                 labelNamePlayer1.Font = new Font(labelNamePlayer1.Font, FontStyle.Bold);
+                labelSemicolonPlayer1.Font = new Font(labelSemicolonPlayer1.Font, FontStyle.Bold);
                 labelScorePlayer1.Font = new Font(labelScorePlayer1.Font, FontStyle.Bold);
                 labelNamePlayer2.Font = new Font(labelNamePlayer2.Font, FontStyle.Regular);
+                labelSemicolonPlayer2.Font = new Font(labelSemicolonPlayer2.Font, FontStyle.Regular);
                 labelScorePlayer2.Font = new Font(labelScorePlayer2.Font, FontStyle.Regular);
             }
             else if (i_NewTurnValue == 1)
             {
                 labelNamePlayer2.Font = new Font(labelNamePlayer2.Font, FontStyle.Bold);
+                labelSemicolonPlayer2.Font = new Font(labelSemicolonPlayer2.Font, FontStyle.Bold);
                 labelScorePlayer2.Font = new Font(labelScorePlayer2.Font, FontStyle.Bold);
                 labelNamePlayer1.Font = new Font(labelNamePlayer1.Font, FontStyle.Regular);
+                labelSemicolonPlayer1.Font = new Font(labelSemicolonPlayer1.Font, FontStyle.Regular);
                 labelScorePlayer1.Font = new Font(labelScorePlayer1.Font, FontStyle.Regular);
             }
         }
