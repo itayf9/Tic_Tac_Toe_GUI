@@ -9,11 +9,13 @@ namespace Tic_Tac_Toe_GUI
 {
     public partial class FormTicTacToeMisere : Form
     {
-        private readonly Dictionary<Button, Point> r_GameBoardButtonToLocation;
-        private readonly Dictionary<Point, Button> r_LocationToGameBoardButton;
+        private readonly Dictionary<Button, Point> r_DictionaryOfGameBoardButtonToLocation;
+        private readonly Dictionary<Point, Button> r_DictionaryOfLocationToGameBoardButton;
         private const bool v_IsButtonEnabled = true;
         private const string k_WinnerMessageBoxTitle = "A Win!";
         private const string k_TieMessageBoxTitle = "A Tie!";
+        private const string k_WinnerMessage = "The winner is {0}!\nWould you like to play another round?";
+        private const string k_TieMessage = "Tie!\nWould you like to play another round?";
         private GameLogic m_GameLogic;
 
         public FormTicTacToeMisere(eBoardSize i_BoardSize, bool i_IsGameAgainstMachine, string i_NameOfPlayer1, string i_NameOfPlayer2)
@@ -23,15 +25,15 @@ namespace Tic_Tac_Toe_GUI
             int boardSizeAsInteger = (int)i_BoardSize;
 
             this.m_GameLogic = new GameLogic(i_BoardSize, i_IsGameAgainstMachine, i_NameOfPlayer1, i_NameOfPlayer2);
-            this.r_GameBoardButtonToLocation = new Dictionary<Button, Point>();
-            this.r_LocationToGameBoardButton = new Dictionary<Point, Button>();
+            this.r_DictionaryOfGameBoardButtonToLocation = new Dictionary<Button, Point>();
+            this.r_DictionaryOfLocationToGameBoardButton = new Dictionary<Point, Button>();
             m_GameLogic.TurnChanged += labels_TurnChanged;
             m_GameLogic.BoardChanged += markButtons_BoardChanged;
         }
 
         private void markButtons_BoardChanged(Point i_LocationOfChange, eBoardMark i_SymbolToPutInLocation)
         {
-            Button gameBoardButtonToChangeText = r_LocationToGameBoardButton[i_LocationOfChange];
+            Button gameBoardButtonToChangeText = r_DictionaryOfLocationToGameBoardButton[i_LocationOfChange];
             gameBoardButtonToChangeText.Text = ((char)i_SymbolToPutInLocation).ToString();
             gameBoardButtonToChangeText.Enabled = !v_IsButtonEnabled;
         }
@@ -54,13 +56,13 @@ namespace Tic_Tac_Toe_GUI
                 for (int j = 0; j < m_GameLogic.GameBoardSize; j++)
                 {
                     Button boardMarkButton = new Button();
-                    boardMarkButton.Height = (flowLayoutPanelGameBoard.Height - 50) / m_GameLogic.GameBoardSize;
-                    boardMarkButton.Width = (flowLayoutPanelGameBoard.Width - 50) / m_GameLogic.GameBoardSize;
+                    boardMarkButton.Height = (flowLayoutPanelGameBoard.Height - 70) / m_GameLogic.GameBoardSize;
+                    boardMarkButton.Width = (flowLayoutPanelGameBoard.Width - 70) / m_GameLogic.GameBoardSize;
                     boardMarkButton.Name = string.Format("button{0}_{1}", i, j);
                     boardMarkButton.Click += BoardMarkButton_Click;
                     Point locationOfButton = new Point(j, i);
-                    this.r_GameBoardButtonToLocation.Add(boardMarkButton, locationOfButton);
-                    this.r_LocationToGameBoardButton.Add(locationOfButton, boardMarkButton);
+                    this.r_DictionaryOfGameBoardButtonToLocation.Add(boardMarkButton, locationOfButton);
+                    this.r_DictionaryOfLocationToGameBoardButton.Add(locationOfButton, boardMarkButton);
                     flowLayoutPanelGameBoard.Controls.Add(boardMarkButton);
                 }
             }
@@ -73,7 +75,7 @@ namespace Tic_Tac_Toe_GUI
         private void BoardMarkButton_Click(object sender, EventArgs e)
         {
             Button clickedButton = sender as Button;
-            Point locationOfClickedButton = this.r_GameBoardButtonToLocation[clickedButton];
+            Point locationOfClickedButton = this.r_DictionaryOfGameBoardButtonToLocation[clickedButton];
 
             m_GameLogic.ApplyMove(locationOfClickedButton);
 
@@ -83,7 +85,7 @@ namespace Tic_Tac_Toe_GUI
                 {
                     Point locationOfComputerButtonMove = m_GameLogic.GenerateMachineMove();
                     m_GameLogic.ApplyMove(locationOfComputerButtonMove);
-                    Button computerButtonMove = r_LocationToGameBoardButton[locationOfComputerButtonMove];
+                    Button computerButtonMove = r_DictionaryOfLocationToGameBoardButton[locationOfComputerButtonMove];
                 }
             }
 
@@ -124,19 +126,17 @@ namespace Tic_Tac_Toe_GUI
         private string generateUIMessageFromGameState(eGameState i_GameState, string i_NameOfPlayer1, string i_NameOfPlayer2)
         {
             string messageForUI = string.Empty;
-            string winnerMessage = "The winner is {0}!\nWould you like to play another round?";
-            string tieMessage = "Tie!\nWould you like to play another round?";
 
             switch (i_GameState)
             {
                 case eGameState.FinishedTie:
-                    messageForUI = tieMessage;
+                    messageForUI = k_TieMessage;
                     break;
                 case eGameState.FinishedP1:
-                    messageForUI = string.Format(winnerMessage, i_NameOfPlayer1);
+                    messageForUI = string.Format(k_WinnerMessage, i_NameOfPlayer1);
                     break;
                 case eGameState.FinishedP2:
-                    messageForUI = string.Format(winnerMessage, i_NameOfPlayer2);
+                    messageForUI = string.Format(k_WinnerMessage, i_NameOfPlayer2);
                     break;
             }
 
@@ -168,7 +168,7 @@ namespace Tic_Tac_Toe_GUI
         private void restartGame()
         {
             m_GameLogic.ResetGameBoard();
-            foreach (Button boardMarkbutton in r_GameBoardButtonToLocation.Keys)
+            foreach (Button boardMarkbutton in r_DictionaryOfGameBoardButtonToLocation.Keys)
             {
                 boardMarkbutton.Text = string.Empty;
                 boardMarkbutton.Enabled = v_IsButtonEnabled;

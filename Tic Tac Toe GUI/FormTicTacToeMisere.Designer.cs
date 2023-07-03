@@ -42,7 +42,7 @@
             this.labelScorePlayer1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.labelScorePlayer1.AutoSize = true;
             this.labelScorePlayer1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelScorePlayer1.Location = new System.Drawing.Point(162, 509);
+            this.labelScorePlayer1.Location = new System.Drawing.Point(161, 579);
             this.labelScorePlayer1.Name = "labelScorePlayer1";
             this.labelScorePlayer1.Size = new System.Drawing.Size(19, 20);
             this.labelScorePlayer1.TabIndex = 0;
@@ -52,7 +52,7 @@
             // 
             this.labelScorePlayer2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.labelScorePlayer2.AutoSize = true;
-            this.labelScorePlayer2.Location = new System.Drawing.Point(339, 509);
+            this.labelScorePlayer2.Location = new System.Drawing.Point(338, 579);
             this.labelScorePlayer2.Name = "labelScorePlayer2";
             this.labelScorePlayer2.Size = new System.Drawing.Size(18, 20);
             this.labelScorePlayer2.TabIndex = 1;
@@ -60,9 +60,10 @@
             // 
             // flowLayoutPanelGameBoard
             // 
+            this.flowLayoutPanelGameBoard.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.flowLayoutPanelGameBoard.Location = new System.Drawing.Point(65, 34);
             this.flowLayoutPanelGameBoard.Name = "flowLayoutPanelGameBoard";
-            this.flowLayoutPanelGameBoard.Size = new System.Drawing.Size(450, 450);
+            this.flowLayoutPanelGameBoard.Size = new System.Drawing.Size(500, 500);
             this.flowLayoutPanelGameBoard.TabIndex = 3;
             // 
             // labelNamePlayer1
@@ -70,7 +71,7 @@
             this.labelNamePlayer1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.labelNamePlayer1.AutoSize = true;
             this.labelNamePlayer1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelNamePlayer1.Location = new System.Drawing.Point(70, 509);
+            this.labelNamePlayer1.Location = new System.Drawing.Point(69, 579);
             this.labelNamePlayer1.Name = "labelNamePlayer1";
             this.labelNamePlayer1.Size = new System.Drawing.Size(73, 20);
             this.labelNamePlayer1.TabIndex = 4;
@@ -80,7 +81,7 @@
             // 
             this.labelNamePlayer2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.labelNamePlayer2.AutoSize = true;
-            this.labelNamePlayer2.Location = new System.Drawing.Point(241, 509);
+            this.labelNamePlayer2.Location = new System.Drawing.Point(240, 579);
             this.labelNamePlayer2.Name = "labelNamePlayer2";
             this.labelNamePlayer2.Size = new System.Drawing.Size(79, 20);
             this.labelNamePlayer2.TabIndex = 5;
@@ -91,7 +92,7 @@
             this.labelSemicolonPlayer1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.labelSemicolonPlayer1.AutoSize = true;
             this.labelSemicolonPlayer1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelSemicolonPlayer1.Location = new System.Drawing.Point(143, 509);
+            this.labelSemicolonPlayer1.Location = new System.Drawing.Point(142, 579);
             this.labelSemicolonPlayer1.Name = "labelSemicolonPlayer1";
             this.labelSemicolonPlayer1.Size = new System.Drawing.Size(14, 20);
             this.labelSemicolonPlayer1.TabIndex = 6;
@@ -101,7 +102,7 @@
             // 
             this.labelSemicolonPlayer2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.labelSemicolonPlayer2.AutoSize = true;
-            this.labelSemicolonPlayer2.Location = new System.Drawing.Point(320, 509);
+            this.labelSemicolonPlayer2.Location = new System.Drawing.Point(319, 579);
             this.labelSemicolonPlayer2.Name = "labelSemicolonPlayer2";
             this.labelSemicolonPlayer2.Size = new System.Drawing.Size(13, 20);
             this.labelSemicolonPlayer2.TabIndex = 7;
@@ -111,7 +112,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(578, 564);
+            this.ClientSize = new System.Drawing.Size(608, 614);
             this.Controls.Add(this.labelSemicolonPlayer2);
             this.Controls.Add(this.labelSemicolonPlayer1);
             this.Controls.Add(this.labelNamePlayer2);
@@ -119,7 +120,7 @@
             this.Controls.Add(this.flowLayoutPanelGameBoard);
             this.Controls.Add(this.labelScorePlayer2);
             this.Controls.Add(this.labelScorePlayer1);
-            this.MinimumSize = new System.Drawing.Size(600, 620);
+            this.MinimumSize = new System.Drawing.Size(630, 670);
             this.Name = "FormTicTacToeMisere";
             this.Text = "Tic Tac Toe Misere";
             this.Load += new System.EventHandler(this.FormTicTacToeMisere_Load);

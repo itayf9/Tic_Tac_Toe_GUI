@@ -14,6 +14,7 @@ namespace Tic_Tac_Toe_GUI
     public partial class FormGameSettings : Form
     {
         private const string k_ComputerName = "Computer";
+        private const string k_NameOfNumbericUpDownRows = "numericUpDownRows";
 
         public FormGameSettings()
         {
@@ -47,7 +48,7 @@ namespace Tic_Tac_Toe_GUI
         private void numericUpDownRowOrCols_ValueChanged(object sender, EventArgs e)
         {
             NumericUpDown senderAsNumbericUpDown = sender as NumericUpDown;
-            if (senderAsNumbericUpDown.Name == "numericUpDownRows")
+            if (senderAsNumbericUpDown.Name == k_NameOfNumbericUpDownRows)
             {
                 numericUpDownCols.Value = numericUpDownRows.Value;
             }
